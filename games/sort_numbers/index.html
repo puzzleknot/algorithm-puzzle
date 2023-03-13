@@ -28,27 +28,24 @@
         <h3 class="my-3">遊び方</h3>
         <p>謎の数字 \(x_1,x_2,\dots,x_8\) があります． \((x_1,x_2,\dots,x_8)\) は \((1,2,\dots,8)\) の順列です．</p>
         <p>1回の質問では， \(x_i\) と \(x_j\) を選んでそれらの大小を聞くことができます．できるだけ少ない質問回数で  \(x_1,x_2,\dots,x_8\) を昇順に並べてください．</p>
-        <!-- <p>\(x\lt y\) なら <code>&lt;</code>, \(x\gt y\) なら <code>&gt;</code>, \(x=y\) なら <code>Correct!</code> が表示されます．
-        </p>
-        <p>\(10\) 回以内の質問で <code>Correct!</code> を表示させて下さい．</p> -->
 
         <hr>
             <div class="row align-items-start justify-content-between">
-                <div class="col-4">
-                    <p class="text-center">大</p>
+                <div class="col-sm-12 col-lg-4">
+                    <p class="text-center">▲ 小さい</p>
                     <ul id="sortable" class="list-group mb-3">
-                        <li class="list-group-item list-group-item-secondary text-center">\(x_1\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center">\(x_2\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center">\(x_3\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center">\(x_4\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center">\(x_5\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center">\(x_6\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center">\(x_7\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center">\(x_8\)</li>
+                        <li class="list-group-item list-group-item-secondary text-center" id="1">\(x_1\)</li>
+                        <li class="list-group-item list-group-item-secondary text-center" id="2">\(x_2\)</li>
+                        <li class="list-group-item list-group-item-secondary text-center" id="3">\(x_3\)</li>
+                        <li class="list-group-item list-group-item-secondary text-center" id="4">\(x_4\)</li>
+                        <li class="list-group-item list-group-item-secondary text-center" id="5">\(x_5\)</li>
+                        <li class="list-group-item list-group-item-secondary text-center" id="6">\(x_6\)</li>
+                        <li class="list-group-item list-group-item-secondary text-center" id="7">\(x_7\)</li>
+                        <li class="list-group-item list-group-item-secondary text-center" id="8">\(x_8\)</li>
                     </ul>
-                    <p class="text-center">小</p>
+                    <p class="text-center">▼ 大きい</p>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-secondary" onclick="submit()">提出する</button>
+                        <button type="submit" class="btn btn-primary" onclick="submit()">提出する</button>
                     </div>
                     <p class="h2">
                         <span id="AC" class="badge badge-success" style="display: none">AC</span>
@@ -56,23 +53,44 @@
                     </p>
                     <p id="message"></p>        
                 </div>
-                <div class="col-7">
+                <div class="col-sm-12 col-lg-7">
                     <h4>質問</h4>
-                    <div id="game" class="m-2 p-2">
+                    <div id="game" class="">
                         <p>現在の質問回数: <span id="remaining-questions">0</span> 回</p>
-                        <div class="row">
-                            <input type="number" class="col-sm-5 form-control" step="1" min="1" max="1000" id="guess"
-                                placeholder="1 以上 1000 以下の数字を入力">
-                            <button type="submit" class="col-sm-2 btn btn-secondary" onclick="ask()">質問する</button>
+                        <div class="row justify-content-between align-items-center">
+                            <div class="row align-items-center px-5">
+                                <select class="form-select" id="element1">
+                                    <option value="x1" selected>\(x_1\)</option>
+                                    <option value="x2">\(x_2\)</option>
+                                    <option value="x3">\(x_3\)</option>
+                                    <option value="x4">\(x_4\)</option>
+                                    <option value="x5">\(x_5\)</option>
+                                    <option value="x6">\(x_6\)</option>
+                                    <option value="x7">\(x_7\)</option>
+                                    <option value="x8">\(x_8\)</option>
+                                </select>
+                                <h5 class="mb-0 px-2">と</h5>
+                                <select class="form-select" id="element2">
+                                    <option value="x1">\(x_1\)</option>
+                                    <option value="x2" selected>\(x_2\)</option>
+                                    <option value="x3">\(x_3\)</option>
+                                    <option value="x4">\(x_4\)</option>
+                                    <option value="x5">\(x_5\)</option>
+                                    <option value="x6">\(x_6\)</option>
+                                    <option value="x7">\(x_7\)</option>
+                                    <option value="x8">\(x_8\)</option>
+                                </select>
+                                <h5 class="mb-0 px-2">の大小</h5>
+                            </div>
+                            <button type="submit" class="btn btn-secondary" onclick="ask()">質問する</button>
                         </div>
-                        <p>返答: <span id="response"></span></p>
+                        <p class="pt-3">返答: <span id="response"></span></p>
                     </div>   
                     <h4>質問履歴</h4>
                     <table class="table table-sm table-striped" id="history">
                         <thead>
                             <tr>
                                 <th scope="col">質問番号</th>
-                                <th scope="col">質問</th>
                                 <th scope="col">返答</th>
                             </tr>
                         </thead>
@@ -95,16 +113,6 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-    <script>
-        $( function() {
-          $( "#sortable" ).sortable();
-        } );
-        function submit(){
-            var idsInOrder = [];
-            $("ul#sortable li").each(function() { idsInOrder.push($(this).text()) });
-            alert(idsInOrder.join('\n'));
-        }
-    </script>
     <script src="main.js"></script>
 </body>
 
