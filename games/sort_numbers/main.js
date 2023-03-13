@@ -60,7 +60,7 @@ $(function () {
 // --- functions for displaying info ---
 
 function showRemainingQuestions() {
-    $("#remaining-questions").text(questionNum);
+    $("#questions-count").text(questionNum);
 }
 
 function showResponse(res) {
