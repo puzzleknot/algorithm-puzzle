@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Puzzleknot Algorithm Puzzles</title>
+    <title>数当てゲーム - Puzzleknot Algorithm Puzzles</title>
     <meta name="author" content="sotanishy">
     <meta name="description" content="Algorithm puzzles for beginners in competitive programming">
 
@@ -24,12 +24,15 @@
     </nav>
 
     <div class="container p-2 mt-2 center">
+        <h2 class="my-2">数当てゲーム</h2>
         <h3 class="my-3">遊び方</h3>
         <p>\(1\) 以上 \(1000\) 以下の秘密の数字 \(x\) があります．</p>
         <p>あなたは \(10\) 回まで質問することができます．1 回の質問では，\(1\) 以上 \(1000\) 以上の数字 \(y\) を選んで入力します．</p>
         <p>\(x\lt y\) なら <code>&lt;</code>, \(x\gt y\) なら <code>&gt;</code>, \(x=y\) なら <code>Correct!</code> が表示されます．
         </p>
         <p>\(10\) 回以内の質問で <code>Correct!</code> を表示させて下さい．</p>
+
+        <hr>
 
         <h3>質問</h3>
         <div id="game" class="m-2 p-2">
@@ -47,6 +50,8 @@
             <p id="message"></p>
         </div>
 
+        <hr>
+
         <h3>質問履歴</h3>
         <table class="table table-sm table-striped" id="history">
             <thead>
@@ -59,6 +64,11 @@
             <tbody>
             </tbody>
         </table>
+
+        <hr>
+
+        <h3>解説</h3>
+        <p>解説は <a href="editorial.html">こちら</a></p>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
