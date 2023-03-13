@@ -1,11 +1,60 @@
 const N = 8;
 
+let selected;
 let answer; // the hidden array
 let submission;
 let questionNum;
 
+function syncSelected(num) {
+    const idx1 = parseInt($("#element1").val()[1]);
+    const idx2 = parseInt($("#element2").val()[1]);
+    for (let i=1; i<=2; i++) {
+        for (let j=1; j<=8; j++) {
+            document.getElementById("op" + i + j).disabled = false;
+        }
+    }
+    document.getElementById("op" + 2 + idx1).disabled = true;
+    document.getElementById("op" + 1 + idx2).disabled = true;
+
+    if (!selected || selected.includes(num)) {
+        return;
+    } else {
+        let diselected = selected[0]
+        let diselectedItem = document.getElementById("li" + (diselected));
+        if (diselectedItem.classList.contains("active")) {
+            diselectedItem.classList.remove("active");
+        }
+
+        selected = [selected[1], num];
+        for (idx of selected) {
+            let selectedItem = document.getElementById("li" + (idx));
+            if (!selectedItem.classList.contains("active")) {
+                selectedItem.classList.add("active");
+            }
+        }
+
+        if (idx1 === diselected) {
+            if (idx2 === selected[0]) {
+                $("#element1").val("x" + selected[1]);
+            } else if (idx2 === selected[1]) {
+                $("#element1").val("x" + selected[0]);
+            }
+        } else if (idx2 === diselected) {
+            if (idx1 === selected[0]) {
+                $("#element2").val("x" + selected[1]);
+            } else if (idx1 === selected[1]) {
+                $("#element2").val("x" + selected[0]);
+            }
+        }
+        return;
+    }
+}
+
 $(function () {
     $("#sortable").sortable();
+    $("#sortable li").on('click', '', function () {
+        syncSelected(parseInt($(this).text()[1]))
+    });
 });
 
 // --- functions for displaying info ---
@@ -44,6 +93,8 @@ function startGame() {
         answer.push("x" + (i + 1));
     }
     answer = shuffleArray(answer);
+
+    selected = [1, 2];
     questionNum = 0;
 }
 

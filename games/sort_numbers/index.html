@@ -33,15 +33,15 @@
             <div class="row align-items-start justify-content-between">
                 <div class="col-sm-12 col-lg-4">
                     <p class="text-center">▲ 小さい</p>
-                    <ul id="sortable" class="list-group mb-3">
-                        <li class="list-group-item list-group-item-secondary text-center" id="1">\(x_1\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center" id="2">\(x_2\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center" id="3">\(x_3\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center" id="4">\(x_4\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center" id="5">\(x_5\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center" id="6">\(x_6\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center" id="7">\(x_7\)</li>
-                        <li class="list-group-item list-group-item-secondary text-center" id="8">\(x_8\)</li>
+                    <ul id="sortable" class="list-group mb-3 connectedSortable">
+                        <li class="list-group-item list-group-item-action list-group-item-light text-center active" id="li1">\(x_1\)</li>
+                        <li class="list-group-item list-group-item-action list-group-item-light text-center active" id="li2">\(x_2\)</li>
+                        <li class="list-group-item list-group-item-action list-group-item-light text-center" id="li3">\(x_3\)</li>
+                        <li class="list-group-item list-group-item-action list-group-item-light text-center" id="li4">\(x_4\)</li>
+                        <li class="list-group-item list-group-item-action list-group-item-light text-center" id="li5">\(x_5\)</li>
+                        <li class="list-group-item list-group-item-action list-group-item-light text-center" id="li6">\(x_6\)</li>
+                        <li class="list-group-item list-group-item-action list-group-item-light text-center" id="li7">\(x_7\)</li>
+                        <li class="list-group-item list-group-item-action list-group-item-light text-center" id="li8">\(x_8\)</li>
                     </ul>
                     <p class="text-center">▼ 大きい</p>
                     <div class="text-center">
@@ -59,26 +59,26 @@
                         <p>現在の質問回数: <span id="remaining-questions">0</span> 回</p>
                         <div class="row justify-content-between align-items-center">
                             <div class="row align-items-center px-5">
-                                <select class="form-select" id="element1">
-                                    <option value="x1" selected>\(x_1\)</option>
-                                    <option value="x2">\(x_2\)</option>
-                                    <option value="x3">\(x_3\)</option>
-                                    <option value="x4">\(x_4\)</option>
-                                    <option value="x5">\(x_5\)</option>
-                                    <option value="x6">\(x_6\)</option>
-                                    <option value="x7">\(x_7\)</option>
-                                    <option value="x8">\(x_8\)</option>
+                                <select class="form-select" id="element1" onchange="syncSelected(this.selectedIndex + 1);">
+                                    <option value="x1" id="op11" selected>\(x_1\)</option>
+                                    <option value="x2" id="op12" disabled>\(x_2\)</option>
+                                    <option value="x3" id="op13">\(x_3\)</option>
+                                    <option value="x4" id="op14">\(x_4\)</option>
+                                    <option value="x5" id="op15">\(x_5\)</option>
+                                    <option value="x6" id="op16">\(x_6\)</option>
+                                    <option value="x7" id="op17">\(x_7\)</option>
+                                    <option value="x8" id="op18">\(x_8\)</option>
                                 </select>
                                 <h5 class="mb-0 px-2">と</h5>
-                                <select class="form-select" id="element2">
-                                    <option value="x1">\(x_1\)</option>
-                                    <option value="x2" selected>\(x_2\)</option>
-                                    <option value="x3">\(x_3\)</option>
-                                    <option value="x4">\(x_4\)</option>
-                                    <option value="x5">\(x_5\)</option>
-                                    <option value="x6">\(x_6\)</option>
-                                    <option value="x7">\(x_7\)</option>
-                                    <option value="x8">\(x_8\)</option>
+                                <select class="form-select" id="element2" onchange="syncSelected(this.selectedIndex + 1);">
+                                    <option value="x1" id="op21" disabled>\(x_1\)</option>
+                                    <option value="x2" id="op22" selected>\(x_2\)</option>
+                                    <option value="x3" id="op23">\(x_3\)</option>
+                                    <option value="x4" id="op24">\(x_4\)</option>
+                                    <option value="x5" id="op25">\(x_5\)</option>
+                                    <option value="x6" id="op26">\(x_6\)</option>
+                                    <option value="x7" id="op27">\(x_7\)</option>
+                                    <option value="x8" id="op28">\(x_8\)</option>
                                 </select>
                                 <h5 class="mb-0 px-2">の大小</h5>
                             </div>
