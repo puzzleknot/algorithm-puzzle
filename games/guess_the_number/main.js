@@ -1,6 +1,6 @@
 const minNumber = 1;
 const maxNumber = 1000;
-const questionCount = 10;
+const questionCount = 15;
 
 let x;  // the hidden number
 let questionNum;
@@ -12,7 +12,13 @@ function showRemainingQuestions() {
 }
 
 function showResponse(res) {
+    $('#error-message').text('');
     $('#response').text(res);
+}
+
+function showErrorMessage(msg) {
+    $('#response').text('');
+    $('#error-message').text(msg);
 }
 
 function appendHistory(num, guess, res) {
@@ -42,6 +48,12 @@ function finishGame(success) {
 function ask() {
     let y = parseInt($('#guess').val());
     let res;
+
+    if (isNaN(y) || y < minNumber || y > maxNumber) {
+        showErrorMessage('1 以上 1000 以下の数字を入力してください');
+        return;
+    }
+
     if (x < y) {
         res = '<';
     } else if (x > y) {
