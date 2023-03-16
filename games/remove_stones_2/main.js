@@ -13,13 +13,17 @@ function getTurn(turn) {
 
 function showTurnAndHeaps() {
     $('#turn').text(getTurn(turn));
-    $('#remaining-stones-1').text('o '.repeat(heaps[0]));
-    $('#remaining-stones-2').text('o '.repeat(heaps[1]));
+    for (let i = 0; i < 2; i++) {
+        $(`#remaining-stones-${i + 1}`).text(heaps[i]);
+        $(`#heap-${i + 1}`).empty();
+        for (let j = 0; j < heaps[i]; j++) {
+            $(`#heap-${i + 1}`).append($(`<input type="checkbox" class="btn-check m-1 large-checkbox" id="btn-check-outlined" name="heap-${i + 1}" autocomplete="off">`));
+        }
+    }
     $('#error-message').text('');
 }
 
 function showErrorMessage(msg) {
-    $('#response').text('');
     $('#error-message').text(msg);
 }
 
@@ -66,27 +70,24 @@ function ask() {
         return;
     }
 
-    let heap = parseInt($('#heap option:selected').val()) - 1;
-
-    if (isNaN(heap)) {
-        showErrorMessage('山を選択してください');
-        return;
-    }
-    if (heaps[heap] == 0) {
-        showErrorMessage('石が1つ以上残っている山を選択してください');
-        return;
+    let cnt = [0, 0];
+    for (let i = 0; i < 2; i++) {
+        cnt[i] = $(`input[name="heap-${i + 1}"]:checked`).length;
     }
 
-    let stone = parseInt($('#stones').val());
-
-    console.log(stone);
-
-    if (isNaN(stone) || stone < 1 || stone > heaps[heap]) {
-        showErrorMessage(`1 以上 ${heaps[heap]} 以下の数字を入力してください`);
+    if (cnt[0] > 0 && cnt[1] > 0) {
+        showErrorMessage('2 つ以上の山から選ぶことはできません');
         return;
     }
 
-    heaps[heap] -= stone;
+    if (cnt[0] == 0 && cnt[1] == 0) {
+        showErrorMessage('石を 1 つ以上選択してください');
+        return;
+    }
+
+    for (let i = 0; i < 2; i++) {
+        heaps[i] -= cnt[i];
+    }
 
     appendHistory(questionNum, turn, heaps);
 

@@ -13,6 +13,11 @@
             display: none;
             color: red;
         }
+
+        .large-checkbox {
+            width: 1.55rem;
+            height: 1.55rem;
+        }
     </style>
 </head>
 
@@ -31,21 +36,24 @@
 
         <hr>
 
-        <h3>質問</h3>
+        <h3>ゲームボード</h3>
         <div id="game" class="m-2 p-2">
             <p><span id="turn"></span> のターン</p>
-            <p>山1: <span id="remaining-stones-1"></span></p>
-            <p>山2: <span id="remaining-stones-2"></span></p>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <th class="col-md-2">山 1: 残り <span id="remaining-stones-1"></span> 個</th>
+                        <td class="col-md-10" id="heap-1"></td>
+                    </tr>
+                    <tr>
+                        <th class="col-md-2">山 2: 残り <span id="remaining-stones-2"></span> 個</th>
+                        <td class="col-md-10" id="heap-2"></td>
+                    </tr>
+                </tbody>
+            </table>
             <div class="row">
-                <select class="form-select col-sm-5" id="heap">
-                    <option selected>山を選択してください</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>
-                <input type="number" class="col-sm-5 form-control" step="1" min="1" id="stones" placeholder="取り除く石の数">
                 <button type="submit" class="col-sm-2 btn btn-secondary" onclick="ask()">操作する</button>
             </div>
-            <p>返答: <span id="response"></span></p>
             <p id="error-message" class="text-danger"></p>
             <p class="h2">
                 <span id="AC" class="badge badge-success" style="display: none">AC</span>
@@ -56,11 +64,11 @@
 
         <hr>
 
-        <h3>質問履歴</h3>
+        <h3>操作履歴</h3>
         <table class="table table-sm table-striped" id="history">
             <thead>
                 <tr>
-                    <th scope="col">質問番号</th>
+                    <th scope="col">操作番号</th>
                     <th scope="col">ターン</th>
                     <th scope="col">残りの石</th>
                 </tr>
