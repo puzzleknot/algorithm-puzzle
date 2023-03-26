@@ -68,7 +68,7 @@ function showResponse(res) {
 }
 
 function appendHistory(num, res) {
-    let row = $("<tr>").append($("<td>").text(num)).append($("<td>").text(res));
+    let row = $("<tr>").append($("<td>").text(num+1)).append($("<td>").text(res));
     $("#history").find("tbody").append(row);
 }
 
