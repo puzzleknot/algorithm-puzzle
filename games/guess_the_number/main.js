@@ -8,7 +8,7 @@ let questionNum;
 // --- functions for displaying info ---
 
 function showRemainingQuestions() {
-    $('#remaining-questions').text(questionCount - questionNum + 1);
+    $('#remaining-questions').text(Math.max(0, questionCount - questionNum + 1));
 }
 
 function showResponse(res) {
@@ -55,28 +55,29 @@ function ask() {
     }
 
     if (x < y) {
-        res = '<';
+        res = '\\(x < y\\)';
     } else if (x > y) {
-        res = '>';
+        res = '\\(x > y\\)';
     } else {
-        res = 'Correct!';
+        res = '\\(x = y\\)';
     }
 
     showResponse(res);
     appendHistory(questionNum, y, res);
+    questionNum++;
+    showRemainingQuestions();
 
-    if (res === 'Correct!') {
-        finishGame(true);
-        return;
-    }
+    MathJax.typeset()
 
-    if (questionNum == questionCount) {
+    if (questionNum >= questionCount) {
         finishGame(false);
         return;
     }
 
-    questionNum++;
-    showRemainingQuestions();
+    if (res === '\\(x = y\\)') {
+        finishGame(true);
+        return;
+    }
 }
 
 
