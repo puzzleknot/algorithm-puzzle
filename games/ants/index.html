@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>蟻の行進 - Puzzleknot Algorithm Puzzles</title>
+    <meta name="author" content="sotanishy">
+    <meta name="description" content="Algorithm puzzles for beginners in competitive programming">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        #error {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">Algorithm Puzzles</a>
+        </div>
+    </nav>
+
+    <div class="container p-2 mt-2 center">
+        <h2 class="my-2">蟻の行進</h2>
+        <h3 class="my-3">遊び方</h3>
+        <p>長さ \(20\) cm の棒の上に，蟻が \(8\) 匹います．</p>
+        <p>蟻は，向いている方向に \(1\) 秒あたり \(1\) cm の速さで進みます．蟻が衝突すると，それぞれの蟻は向きを変えます．ただし，蟻の大きさは \(0\) とします．</p>
+        <p>蟻が棒の端に到達すると，蟻は棒から落ちます．</p>
+        <p>すべての蟻が棒から落ちるまでに何秒かかるでしょう？</p>
+        <p>答えを入力すると，シミュレーションが実行されて正解がわかります．</p>
+
+        <hr>
+
+        <h3>シミュレーション</h3>
+        <canvas id="canvas" class="border"></canvas>
+
+        <h3>回答</h3>
+        <div id="game" class="m-2 p-2">
+            <p></p>
+            <div class="row">
+                <input type="number" class="col-sm-5 form-control" step="1" min="1" id="guess"
+                    placeholder="答えを入力してください">
+                <button type="submit" class="col-sm-2 btn btn-secondary" onclick="ask()">回答する</button>
+            </div>
+            <p id="error-message" class="text-danger"></p>
+            <p class="h2">
+                <span id="AC" class="badge badge-success" style="display: none">AC</span>
+                <span id="WA" class="badge badge-warning" style="display: none">WA</span>
+            </p>
+            <p id="message"></p>
+        </div>
+
+        <hr>
+
+        <h3>解説</h3>
+        <p>解説は <a href="editorial.html">こちら</a></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
