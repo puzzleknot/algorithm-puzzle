@@ -132,10 +132,12 @@ function ask() {
         res = "=";
     }
 
-    const expression = ele1 + " " + res + " " + ele2;
+    const expression = `\\(${ele1[0]}_${ele1[1]} ${res} ${ele2[0]}_${ele2[1]}\\)`;
     showResponse(expression);
     appendHistory(questionNum, expression);
 
+    MathJax.typeset()
+    
     questionNum++;
     showRemainingQuestions();
 }
