@@ -27,22 +27,21 @@
         <h2 class="my-2">数当てゲーム</h2>
         <h3 class="my-3">遊び方</h3>
         <p>\(1\) 以上 \(1000\) 以下の秘密の数字 \(x\) があります．</p>
-        <p>あなたは \(10\) 回まで質問することができます．1 回の質問では，\(1\) 以上 \(1000\) 以上の数字 \(y\) を選んで入力します．</p>
-        <p>\(x\lt y\) なら <code>&lt;</code>, \(x\gt y\) なら <code>&gt;</code>, \(x=y\) なら <code>Correct!</code> が表示されます．
-        </p>
-        <p>\(10\) 回以内の質問で <code>Correct!</code> を表示させて下さい．</p>
+        <p>あなたは \(15\) 回まで質問することができます．1 回の質問では，\(1\) 以上 \(1000\) 以上の数字 \(y\) を選んで入力します．</p>
+        <p>\(x\) と \(y\) の大小関係が返されます． \(15\) 回以内の質問で \(x=y\) としてください．</p>
 
         <hr>
 
         <h3>質問</h3>
         <div id="game" class="m-2 p-2">
-            <p>残りの質問回数: <span id="remaining-questions">10</span> 回</p>
+            <p>残りの質問回数: <span id="remaining-questions">15</span> 回</p>
             <div class="row">
                 <input type="number" class="col-sm-5 form-control" step="1" min="1" max="1000" id="guess"
                     placeholder="1 以上 1000 以下の数字を入力">
                 <button type="submit" class="col-sm-2 btn btn-secondary" onclick="ask()">質問する</button>
             </div>
             <p>返答: <span id="response"></span></p>
+            <p id="error-message" class="text-danger"></p>
             <p class="h2">
                 <span id="AC" class="badge badge-success" style="display: none">AC</span>
                 <span id="WA" class="badge badge-warning" style="display: none">WA</span>
