@@ -1,6 +1,6 @@
 const minStones = 5;
 const maxStones = 10;
-const heapCount = 2;
+const heapCount = 3;
 
 let heaps = new Array(heapCount);
 let turn = 0;  // 0: player, 1: computer

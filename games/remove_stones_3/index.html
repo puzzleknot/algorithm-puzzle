@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>石取りゲーム (2山) - Puzzleknot Algorithm Puzzles</title>
+    <meta name="author" content="sotanishy">
+    <meta name="description" content="Algorithm puzzles for beginners in competitive programming">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        #error {
+            display: none;
+            color: red;
+        }
+
+        .large-checkbox {
+            width: 1.55rem;
+            height: 1.55rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">Algorithm Puzzles</a>
+        </div>
+    </nav>
+
+    <div class="container p-2 mt-2 center">
+        <h2 class="my-2">石取りゲーム (3山)</h2>
+        <h3 class="my-3">遊び方</h3>
+        <p>石の山が3つあります．あなたとコンピュータの2人でゲームをします．各プレイヤーは交互に，石が1つ以上残っている山を選んで，その山から石を1つ以上取り除きます．</p>
+        <p>最後の石を取ったプレイヤーの勝ちです．コンピュータに勝ってください．</p>
+
+        <hr>
+
+        <h3>ゲームボード</h3>
+        <div id="game" class="m-2 p-2">
+            <p><span id="turn"></span> のターン</p>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <th class="col-md-2">山 1: 残り <span id="remaining-stones-1"></span> 個</th>
+                        <td class="col-md-10" id="heap-1"></td>
+                    </tr>
+                    <tr>
+                        <th class="col-md-2">山 2: 残り <span id="remaining-stones-2"></span> 個</th>
+                        <td class="col-md-10" id="heap-2"></td>
+                    </tr>
+                    <tr>
+                        <th class="col-md-2">山 3: 残り <span id="remaining-stones-3"></span> 個</th>
+                        <td class="col-md-10" id="heap-3"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <button type="submit" class="col-sm-2 btn btn-secondary" onclick="ask()">操作する</button>
+            </div>
+            <p id="error-message" class="text-danger"></p>
+            <p class="h2">
+                <span id="AC" class="badge badge-success" style="display: none">AC</span>
+                <span id="WA" class="badge badge-warning" style="display: none">WA</span>
+            </p>
+            <p id="message"></p>
+        </div>
+
+        <hr>
+
+        <h3>操作履歴</h3>
+        <table class="table table-sm table-striped" id="history">
+            <thead>
+                <tr>
+                    <th scope="col">操作番号</th>
+                    <th scope="col">ターン</th>
+                    <th scope="col">残りの石</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h3>解説</h3>
+        <p>解説は <a href="editorial.html">こちら</a></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
