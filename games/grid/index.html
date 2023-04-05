@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>グリッド上の最短距離 - Puzzleknot Algorithm Puzzles</title>
+    <meta name="author" content="sotanishy">
+    <meta name="description" content="Algorithm puzzles for beginners in competitive programming">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        #error {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">Algorithm Puzzles</a>
+        </div>
+    </nav>
+
+    <div class="container p-2 mt-2 center">
+        <h2 class="my-2">グリッド上の最短距離</h2>
+        <h3 class="my-3">遊び方</h3>
+        <p>\(5 \times 5\) のグリッドが与えられ，各マス目には数字が書いてあります．</p>
+        <p>左上のマスから右下のマスまでの経路の長さを，経路上の数字の総和とします．</p>
+        <p>最短の経路の長さ \(d\) を求めてください．</p>
+
+        <hr>
+        <table class="table table-bordered text-center" style="table-layout: fixed;">
+            <tbody>
+                <tr>
+                    <th class="table-active" id="tstart">Start</th>
+                    <td id="t01">2</td>
+                    <td id="t02">3</td>
+                    <td id="t03">4</td>
+                    <td id="t04">5</td>
+                </tr>
+                <tr>
+                    <td id="t10">1</td>
+                    <td id="t11">2</td>
+                    <td id="t12">3</td>
+                    <td id="t13">4</td>
+                    <td id="t14">5</td>
+                </tr>
+                <tr>
+                    <td id="t20">1</td>
+                    <td id="t21">2</td>
+                    <td id="t22">3</td>
+                    <td id="t23">4</td>
+                    <td id="t24">5</td>
+                </tr>
+                <tr>
+                    <td id="t30">1</td>
+                    <td id="t31">2</td>
+                    <td id="t32">3</td>
+                    <td id="t33">4</td>
+                    <td id="t34">5</td>
+                </tr>
+                <tr>
+                    <td id="t40">1</td>
+                    <td id="t41">2</td>
+                    <td id="t42">3</td>
+                    <td id="t43">4</td>
+                    <th class="table-active" id="tgoal">Goal</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="text-right">
+            <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              解答例を見る
+            </button>
+        </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <p>上のグリッドで，<b>Start \(\to \to \to \to \downarrow \downarrow \downarrow \downarrow\) Goal</b> という経路を選択すると，経路上の数字の総和は</p>
+                <p id="sample-sum"></p>
+                <p>と求められます．ただし，この経路の長さが最短とは限らないことに注意してください．</p>
+            </div>
+          </div>
+
+        <hr>
+
+        <h3>質問</h3>
+        <div id="game" class="m-2 p-2">
+            <!-- <p>残りの質問回数: <span id="remaining-questions">15</span> 回</p> -->
+            <div class="row">
+                <input type="number" class="col-sm-5 form-control" step="1" min="1" id="guess"
+                    placeholder="1以上の数字を入力">
+                <button type="submit" class="col-sm-2 btn btn-secondary" onclick="ask()">質問する</button>
+            </div>
+            <p>返答: <span id="response"></span></p>
+            <p id="error-message" class="text-danger"></p>
+            <p class="h2">
+                <span id="AC" class="badge badge-success" style="display: none">AC</span>
+                <span id="WA" class="badge badge-warning" style="display: none">WA</span>
+            </p>
+            <p id="message"></p>
+        </div>
+
+        <hr>
+
+        <h3>質問履歴</h3>
+        <table class="table table-sm table-striped" id="history">
+            <thead>
+                <tr>
+                    <th scope="col">質問番号</th>
+                    <th scope="col">質問</th>
+                    <th scope="col">返答</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h3>解説</h3>
+        <p>解説は <a href="editorial.html">こちら</a></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
