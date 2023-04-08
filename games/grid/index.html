@@ -86,13 +86,13 @@
 
         <hr>
 
-        <h3>質問</h3>
+        <h3>回答</h3>
         <div id="game" class="m-2 p-2">
             <!-- <p>残りの質問回数: <span id="remaining-questions">15</span> 回</p> -->
             <div class="row">
                 <input type="number" class="col-sm-5 form-control" step="1" min="1" id="guess"
                     placeholder="1以上の数字を入力">
-                <button type="submit" class="col-sm-2 btn btn-secondary" onclick="ask()">質問する</button>
+                <button type="submit" class="col-sm-2 btn btn-secondary" onclick="ask()">回答する</button>
             </div>
             <p>返答: <span id="response"></span></p>
             <p id="error-message" class="text-danger"></p>
@@ -105,12 +105,12 @@
 
         <hr>
 
-        <h3>質問履歴</h3>
+        <h3>回答履歴</h3>
         <table class="table table-sm table-striped" id="history">
             <thead>
                 <tr>
-                    <th scope="col">質問番号</th>
-                    <th scope="col">質問</th>
+                    <th scope="col">回答番号</th>
+                    <th scope="col">回答</th>
                     <th scope="col">返答</th>
                 </tr>
             </thead>
@@ -128,7 +128,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <script src="main.js"></script>
 </body>

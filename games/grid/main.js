@@ -34,9 +34,12 @@ function appendHistory(num, guess, res) {
 
 function startGame() {
     arr = [];
+    let dp = []
     for (let i = 0; i < size; i++) {
       arr[i] = [];
+      dp[i] = [];
       for (let j = 0; j < size; j++) {
+        dp[i][j] = 1000;
         if ((i === 0 && j === 0) || (i === 4 && j === 4)) {
             arr[i][j] = 0;
         } else {
@@ -52,35 +55,49 @@ function startGame() {
     
     MathJax.typeset()
 
-    // bit全探索
-    ans = 1000;
-    const n = 2 * (size - 1);
-    for (let bit = 0; bit < (1 << n); bit++) {
-        let dist = 0;
-        let flag = true;
-        let nowi = 0;
-        let nowj = 0;
-        for (let k = 0; k < n; k++) {
-          if (bit & (1 << k)) {
-            nowi++;
-          } else {
-            nowj++;
-          }
+    // // bit全探索
+    // ans = 1000;
+    // const n = 2 * (size - 1);
+    // for (let bit = 0; bit < (1 << n); bit++) {
+    //     let dist = 0;
+    //     let flag = true;
+    //     let nowi = 0;
+    //     let nowj = 0;
+    //     for (let k = 0; k < n; k++) {
+    //       if (bit & (1 << k)) {
+    //         nowi++;
+    //       } else {
+    //         nowj++;
+    //       }
 
-          if (nowi < size && nowj < size) {
-            dist += arr[nowi][nowj];
-          } else {
-            flag = false
-            break
-          }
-        }
+    //       if (nowi < size && nowj < size) {
+    //         dist += arr[nowi][nowj];
+    //       } else {
+    //         flag = false
+    //         break
+    //       }
+    //     }
 
-        if (flag) {
-            ans = Math.min(ans, dist);
+    //     if (flag) {
+    //         ans = Math.min(ans, dist);
+    //     }
+    // }
+    // console.log(ans);    // デバッグ用答え出力
+
+    // 動的計画法
+    dp[0][0] = 0;
+    for (let i=0; i < size; i++) {
+        for (let j=0; j < size; j++) {
+            if (i + 1 < size) {
+                dp[i+1][j] = Math.min(dp[i+1][j], dp[i][j] + arr[i+1][j]);
+            }
+            if (j + 1 < size) {
+                dp[i][j+1] = Math.min(dp[i][j+1], dp[i][j] + arr[i][j+1]);
+            }
         }
     }
+    console.log(dp[size - 1][size - 1])
 
-    // console.log(ans);    // デバッグ用答え出力
     questionNum = 1;
 }
 
