@@ -96,7 +96,7 @@ function startGame() {
             }
         }
     }
-    console.log(dp[size - 1][size - 1])
+    // console.log(dp[size - 1][size - 1])    // デバッグ用答え出力
 
     questionNum = 1;
 }
